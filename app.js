@@ -31,8 +31,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', auth);
-app.use('/api/v1/boards', authmw.isLoggedIn, boards);
-app.use('/api/v1/tasks', authmw.isLoggedIn, tasks);
+// app.use('/api/v1/boards', authmw.isLoggedIn, boards);
+app.use('/api/v1/tasks', authmw.isLoggedIn ,tasks);
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);

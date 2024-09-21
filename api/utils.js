@@ -9,7 +9,11 @@ async function isTaskOwnedByUser(id, req){
     },
   });
   if(task){
-    return await isBoardOwnedByUser(task.boardId, req);
+    if(task.userId == req.user.id){
+      return true;
+    }else{
+      return false;
+    }
   }else{
     return false;
   }

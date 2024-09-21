@@ -96,16 +96,6 @@ router.post('/signup', async (req, res, next) => {
           password: hashPass,
           fname: req.body.fname,
           lname: req.body.lname,
-          boards:{
-            create:{
-              title:'',
-              tasks:{
-                create:{
-                  title: "",
-                },
-              },
-            },
-          }
         }
       })
       console.log(resultUser);
