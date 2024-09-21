@@ -1,0 +1,8 @@
+DB_HOST=127.0.0.1
+DB_USER=root
+DB_PASSWORD=supersecretpassword
+DB_NAME=todo-api
+DB_PORT=3306
+API_PORT=5001
+TOKEN_SECRET=supersecretstringthatislongerthan20charachters
+DATABASE_URL=mysql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?connect_timeout=300
