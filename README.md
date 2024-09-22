@@ -45,7 +45,7 @@ Make sure you have the following installed:
 
 ### Endpoints
 
-All endpoints check to make sure that the task is associated with the logged in user. If the user isn't logged in then the API will respond with an error: *There is no task with that id associated with your user account*.
+All endpoints check to make sure that the task is associated with the logged in user. If the user isn't logged in then the API will respond with an error: *This user does not have a task with this id: (Num)*.
 
 
 #### GET:
@@ -61,3 +61,11 @@ All endpoints check to make sure that the task is associated with the logged in 
 
 #### DELETE:
 - [x] **uri/task/:id** - Delete a task from the database denoted by the id and associated with the user.
+
+#### AUTH(POST):
+- [x] **uri/auth/signup** - Post valid data requirements in the body of the request, and you should receive back a token for future requests.
+    - Requirements
+        - fname : string
+        - lname : string
+        - email : string (Valid email)
+        - password : string (Valid password)
