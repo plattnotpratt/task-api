@@ -22,7 +22,7 @@ A simple and easy-to-use REST API for managing a ToDo List application. This API
 ## Tech Stack
 
 - **Backend**: Node.js (Express) 
-- **Database**: MySQL
+- **Database**: MySQL through (Docker)
 - **Authentication**: JWT (JSON Web Tokens)
 - **Documentation**: Swagger
 - **Testing**: Mocha/Chai (Node)
@@ -34,7 +34,7 @@ A simple and easy-to-use REST API for managing a ToDo List application. This API
 Make sure you have the following installed:
 
 - Node.js
-- MySQL
+- Docker
 
 ### Installation
 
@@ -43,10 +43,31 @@ Make sure you have the following installed:
    ```bash
    git clone https://github.com/your-username/todo-list-api.git
 
+2. Spin up the docker container (MySQL Server + Volume)
+    ```bash
+    docker-compose -f docker-compose.dev.yml up -d --wait
+
+3. Duplicate the .sample-env file and make changes to the passwords and destinations.
+
+4. Run prisma migrate to start up the database with default tables and call the migration init
+    ```bash
+    npx prisma migrate dev
+
 ### Endpoints
 
-All endpoints check to make sure that the task is associated with the logged in user. If the user isn't logged in then the API will respond with an error: *This user does not have a task with this id: (Num)*.
+All endpoints except those under the *AUTH(POST)* check to make sure that the task is associated with the logged in user. If the user isn't logged in then the API will respond with an error: *This user does not have a task with this id: (Num)*, or *This user is not authorized to make changes to this task*
 
+#### AUTH(POST):
+- [x] **uri/auth/signup** - Post valid data requirements in the body of the request, and you should receive back a token for future requests.
+    - Requirements
+        - fname : string
+        - lname : string
+        - email : string (Valid email)
+        - password : string (Valid password)
+- [x] **uri/auth/login** - Checks the database for a user associated with the email and then checks the password matches the hashed pass on the database.
+    - Requirements
+        - email : string (Valid email)
+        - password : string (Valid password)
 
 #### GET:
 - [x] **uri/task/** - Get all tasks from the database associated with the user.
@@ -62,10 +83,4 @@ All endpoints check to make sure that the task is associated with the logged in 
 #### DELETE:
 - [x] **uri/task/:id** - Delete a task from the database denoted by the id and associated with the user.
 
-#### AUTH(POST):
-- [x] **uri/auth/signup** - Post valid data requirements in the body of the request, and you should receive back a token for future requests.
-    - Requirements
-        - fname : string
-        - lname : string
-        - email : string (Valid email)
-        - password : string (Valid password)
+
