@@ -5,6 +5,7 @@ const cors = require('cors');
 const authmw = require('./auth/middlewares');
 const boards = require('./api/boards');
 const tasks = require('./api/tasks');
+const validate = require('./auth/validate');
 
 require('dotenv').config();
 
@@ -17,7 +18,7 @@ const app = express();
 app.use(morgan('dev'));
 app.use(helmet());
 app.use(cors({
-  origin: 'http://localhost:8080'
+  origin: 'http://localhost:5173'
 }));
 app.use(express.json());
 app.use(authmw.checkTokenSetUser);
@@ -32,7 +33,9 @@ app.get('/', (req, res) => {
 
 app.use('/auth', auth);
 // app.use('/api/v1/boards', authmw.isLoggedIn, boards);
+
 app.use('/api/v1/tasks', authmw.isLoggedIn ,tasks);
+app.use('/api/v1/validate', authmw.isLoggedIn, validate);
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);

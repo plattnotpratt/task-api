@@ -46,7 +46,7 @@ function createTokenSendResponse(user, res, next) {
   };
 
   jwt.sign(payload, process.env.TOKEN_SECRET, {
-    expiresIn: '1d'
+    expiresIn: "1d",
   }, (err, token) => {
     if (err) {
       console.log(err);
