@@ -1,6 +1,6 @@
-# ToDo List API
+# Task API
 
-A simple and easy-to-use REST API for managing a ToDo List application. This API allows users to perform CRUD operations (Create, Read, Update, Delete) on tasks.
+A simple and easy-to-use REST API for managing a Task List API. This API allows users to perform CRUD operations (Create, Read, Update, Delete) on tasks.
 
 ## Table of Contents
 
@@ -8,9 +8,6 @@ A simple and easy-to-use REST API for managing a ToDo List application. This API
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
 - [API Endpoints](#api-endpoints)
-- [Running Tests](#running-tests)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
