@@ -9,14 +9,14 @@ A simple and easy-to-use REST API for managing a Task List API. This API allows 
 - [Getting Started](#getting-started)
 - [API Endpoints](#api-endpoints)
 
-## Features
+## Features<a id=features></a>
 
 - **Create Tasks**: Add new tasks to the ToDo list.
 - **View Tasks**: Retrieve a list of tasks or a specific task by ID.
 - **Update Tasks**: Modify existing tasks (e.g., mark them as completed).
 - **Delete Tasks**: Remove tasks from the list.
 
-## Tech Stack
+## Tech Stack<a id=tech-stack></a>
 
 - **Backend**: Node.js (Express) 
 - **Database**: MySQL through (Docker)
@@ -24,7 +24,7 @@ A simple and easy-to-use REST API for managing a Task List API. This API allows 
 - **Documentation**: Swagger
 - **Testing**: Mocha/Chai (Node)
 
-## Getting Started
+## Getting Started<a id=getting-started></a>
 
 ### Prerequisites
 
@@ -50,7 +50,7 @@ Make sure you have the following installed:
     ```bash
     npx prisma migrate dev
 
-### Endpoints
+### Endpoints<a id=api-endpoints></a>
 
 All endpoints except those under the *AUTH(POST)* check to make sure that the task is associated with the logged in user. If the user isn't logged in then the API will respond with an error: *This user does not have a task with this id: (Num)*, or *This user is not authorized to make changes to this task*
 
